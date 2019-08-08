@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
         borderRadius: '50%',
         borderColor: '#fff',
         border: '2px solid',
-        width: '200px'
+        width: '350px'
     }
 }));
 
@@ -28,7 +28,7 @@ const Home = () => {
                     </Grid>
 
                     <Grid item xs>
-                        <Typography variant='h3' align='center'>
+                        <Typography variant='h3' align='center' gutterBottom>
                             Nitish Poddar
                         </Typography>
                     </Grid>
