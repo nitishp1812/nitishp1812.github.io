@@ -4,14 +4,13 @@
   "private": true,
   "homepage": "https://nitishp1812.github.io/",
   "dependencies": {
-    "@material-ui/core": "^4.3.0",
+    "@material-ui/core": "^4.3.1",
     "@material-ui/icons": "^4.2.1",
     "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.5",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1",
-    "typeface-roboto": "0.0.75"
+    "react-scripts": "3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

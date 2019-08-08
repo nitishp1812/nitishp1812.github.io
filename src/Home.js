@@ -1,11 +1,9 @@
 import React from 'react';
 import { Grid, Typography, makeStyles, Fade } from '@material-ui/core';
 
-import dp from './imgs/dp.jpeg';
-
 const useStyles = makeStyles(theme => ({
     root: {
-        background: '#55a',
+        background: theme.palette.primary.main,
         color: '#fff',
         padding: '4%',
         flexGrow: 1
@@ -15,13 +13,6 @@ const useStyles = makeStyles(theme => ({
         borderColor: '#fff',
         border: '2px solid',
         width: '200px'
-    },
-    detailContainer: {
-        textAlign: 'center' 
-    },
-    linkContainer: {
-        width: '450px',
-        marginTop: '-120px'
     }
 }));
 
@@ -33,11 +24,11 @@ const Home = () => {
             <Fade in={true} timeout={3500}>
                 <Grid container direction='column' spacing={5} alignItems='center' justify='center'>
                     <Grid item xs>
-                        <img className={classes.dp} src={dp} alt="DP" />
+                        <img className={classes.dp} src={require('./imgs/dp.jpeg')} alt="DP" />
                     </Grid>
 
                     <Grid item xs>
-                        <Typography variant='h2' align='center'>
+                        <Typography variant='h3' align='center'>
                             Nitish Poddar
                         </Typography>
                     </Grid>
