@@ -21,7 +21,7 @@ const Home = () => {
 
     return (
         <div className={classes.root}>
-            <Fade in={true} timeout={3500}>
+            <Fade in={true} timeout={2000}>
                 <Grid container direction='column' spacing={5} alignItems='center' justify='center'>
                     <Grid item xs>
                         <img className={classes.dp} src={require('./imgs/dp.jpeg')} alt="DP" />
