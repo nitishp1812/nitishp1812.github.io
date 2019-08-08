@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     }
 });
 
-const App = () => {
+export default () => {
     const classes = useStyles();
 
     return (
@@ -29,5 +29,3 @@ const App = () => {
         </MuiThemeProvider>
     );
 }
-
-export default App;

@@ -1,7 +1,7 @@
 import { createMuiTheme } from '@material-ui/core';
 import { rgbToHex } from '@material-ui/core/styles';
 
-const theme = createMuiTheme({
+export default createMuiTheme({
     palette: {
         primary: {
             main: rgbToHex('rgb(4, 19, 104)')
@@ -11,5 +11,3 @@ const theme = createMuiTheme({
         fontFamily: ' "Montserrat", sans-serif'
     }
 });
-
-export default theme;
