@@ -28,31 +28,47 @@ export default () => {
             <Grid container className={classes.container} 
               justify='center' 
               alignItems='center' 
-              spacing={5}>
+              spacing={10}>
 
-                <Grid item xs>
-                    <DisplayCard imageAddress='uiuc.jpg' heading='University of Illinois at Urbana-Champaign'>
-                        B.Sc (Computer Science)
-                        <br/>
-                        Class of 2022
+                <Grid item xs={3}>
+                    <DisplayCard imageAddress='uiuc.jpg'>
+                        <Typography align='center' variant='h6' gutterBottom>
+                            University of Illinois at Urbana-Champaign
+                        </Typography>
+                        <Typography align='center' variant='body2'>
+                            B.Sc (Computer Science)
+                            <br/><br/>
+                            Class of 2022
+                        </Typography>
                     </DisplayCard>
                 </Grid>
 
 
-                <Grid item xs>
-                    <DisplayCard imageAddress='supertron.png' heading='Supertron Infotech Pvt. Ltd.'>
-                        Web Developer, Project Lead
-                        <br/>
-                        Summer 2019
+                <Grid item xs={3}>
+                    <DisplayCard imageAddress='supertron.png'>
+                        <Typography align='center' variant='h6' gutterBottom>
+                            Supertron Infotech
+                        </Typography>
+                        <Typography align='center' variant='body2'>
+                            Project lead for making a chat bot and search engine for a local university's website
+                            using React and MongoDB
+                            <br/><br/>
+                            Summer 2019
+                        </Typography>
                     </DisplayCard>
                 </Grid>
 
 
-                <Grid item xs>
-                    <DisplayCard imageAddress='heritage.jpg' heading='Heritage Institute of Technology'>
-                        Research Assistant
-                        <br/>
-                        Spring 2018
+                <Grid item xs={3}>
+                    <DisplayCard imageAddress='heritage.jpg'>
+                        <Typography align='center' variant='h6' gutterBottom>
+                            Heritage Institute of Technology
+                        </Typography>
+                        <Typography align='center' variant='body2'>
+                            Learned about missing value estimation from Professor Sujay Saha.
+                            <br/><br/>
+                            Spring 2018
+                        </Typography>
                     </DisplayCard>
                 </Grid>
             </Grid>

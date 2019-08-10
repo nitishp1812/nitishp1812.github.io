@@ -31,7 +31,7 @@ export default () => {
             <br/><br/>
             <Typography className={classes.content} variant='h5' align='center' paragraph>
                 I am an enthusiastic software developer, and I primarily try to develop applications
-                that can help its users in some way. I am also greatlyinterested in the fields of 
+                that can help its users in some way. I am also greatly interested in the fields of 
                 Data Science and Machine Learning. Recently, the fieldsof Computer Networking and
                 Cloud Computing have also begun to pique my attention.
             </Typography>

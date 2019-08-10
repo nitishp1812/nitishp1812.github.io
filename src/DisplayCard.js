@@ -1,11 +1,14 @@
 import React from 'react';
 
-import { makeStyles, Card, CardMedia, CardContent, Typography } from '@material-ui/core';
+import { makeStyles, Card, CardMedia, CardContent } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
     image: {
         width: '100%',
         height: '250px'
+    },
+    content: {
+        height: '160px'
     }
 }));
 
@@ -19,13 +22,8 @@ export default (props) => {
             <CardMedia
               className={classes.image}
               image={logo} />
-            <CardContent>
-                <Typography variant='body1' align='left' gutterBottom>
-                    {props.heading}
-                </Typography>
-                <Typography variant='body2' align='left' gutterBottom>
-                    {props.children}
-                </Typography>
+            <CardContent className={classes.content}>
+                {props.children}
             </CardContent>
         </Card>
     );
