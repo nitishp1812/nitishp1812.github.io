@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "152ef36b976957b38d2f74a3e1135b0d",
+    "revision": "2dc90643e10bc442175accfe26d9c2ec",
     "url": "/index.html"
   },
   {
-    "revision": "e27609230c15486ad3f1",
+    "revision": "114745de39eb017f147e",
     "url": "/static/css/main.9559e866.chunk.css"
   },
   {
-    "revision": "ce870f83c396652fd6e2",
-    "url": "/static/js/2.f40242db.chunk.js"
+    "revision": "7c402c50661912e2245a",
+    "url": "/static/js/2.6f4b058a.chunk.js"
   },
   {
-    "revision": "e27609230c15486ad3f1",
-    "url": "/static/js/main.7865736f.chunk.js"
+    "revision": "114745de39eb017f147e",
+    "url": "/static/js/main.f17f7c9b.chunk.js"
   },
   {
     "revision": "42ac5946195a7306e2a5",
@@ -22,6 +22,22 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "59cc8529fe9f457e41b7d654713649c2",
     "url": "/static/media/Resume.59cc8529.pdf"
+  },
+  {
+    "revision": "a250f9b7bef0afa5201557de9f7e521e",
+    "url": "/static/media/asl.a250f9b7.jpg"
+  },
+  {
+    "revision": "4a8102a3b11fd962cd361733a0c9ec40",
+    "url": "/static/media/calculator.4a8102a3.png"
+  },
+  {
+    "revision": "461f4e0b96a12b6770c779f64f640160",
+    "url": "/static/media/chat.461f4e0b.png"
+  },
+  {
+    "revision": "c6a79e190f673161b3acbc24d2491e8d",
+    "url": "/static/media/chatbot.c6a79e19.jpg"
   },
   {
     "revision": "74326079b51ff81b4771d90ace201b59",
@@ -38,5 +54,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "8fcac3b248cff064c0d887b34489cd24",
     "url": "/static/media/linkedin.8fcac3b2.svg"
+  },
+  {
+    "revision": "c85ff930b152b634a42567830ad81d21",
+    "url": "/static/media/zip.c85ff930.xcf"
   }
 ]);
