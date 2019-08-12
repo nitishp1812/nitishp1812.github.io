@@ -4,6 +4,8 @@ import { Grid, Fade, makeStyles, Typography, Popper, Paper } from '@material-ui/
 import MailIcon from '@material-ui/icons/Mail';
 import NotesIcon from '@material-ui/icons/NotesTwoTone';
 
+const resume = require('./data/Resume.pdf');
+
 const useStyles = makeStyles(theme => ({
     linksContainer: {
         position: 'absolute',
@@ -36,13 +38,18 @@ const Link = (props) => {
         setAnchorEl(null);
     }
 
+    let link = props.link;
+    if (props.name === 'My Resume') {
+        link = resume;
+    }
+
     const open = Boolean(anchorEl);
     const id = open ? 'desc-popper' : undefined;
 
     return (
         <Fade in={true} timeout={3500}>
             <div>
-                <a href={props.link}
+                <a href={link}
                   target='_blank'
                   aria-describedby={id}
                   onMouseEnter={handlePopoverOpen}
