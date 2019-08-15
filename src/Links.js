@@ -6,16 +6,18 @@ import NotesIcon from '@material-ui/icons/NotesTwoTone';
 
 const resume = require('./data/Resume.pdf');
 
+const isMobile = window.innerWidth <= 500;
+
 const useStyles = makeStyles(theme => ({
     linksContainer: {
         position: 'absolute',
         left: '50%',
         background: '#fff',
         boxShadow: '0 0 40px rgba(0, 0, 0, 0.2)',
-        width: '500px',
+        width: (isMobile) ? '370px' : '500px',
         padding: '20px',
         textAlign: 'center',
-        transform: 'translate(-50%, -50%)'
+        transform: 'translate(-50%, -50%)',
     },
     desc: {
         background: '#fff',

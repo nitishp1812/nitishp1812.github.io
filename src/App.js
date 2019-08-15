@@ -17,35 +17,40 @@ export default class extends Component {
             duration: 1500
         };
 
+        const isMobile = window.innerWidth <= 500;
+        const navSize = (isMobile) ? 'body1' : 'h6';
+        const navBarPadding = (isMobile) ? '1% 0' : '0.5% 0'
+        const navSpacing = (isMobile) ? 2 : 5
+
         return (
-            <AppBar position='sticky' style={{background: '#e0e0e0', color: '#000', padding: '0.5% 0%'}}>
+            <AppBar position='sticky' style={{background: '#e0e0e0', color: '#000', padding: {navBarPadding}}}>
                 <Toolbar>
                     <Grid container style={{paddingRight: '2%'}}
-                      direction='row' alignItems='center' spacing={5} justify='center'>
-                        <Grid item xs={6}></Grid>
+                      direction='row' alignItems='center' spacing={navSpacing} justify='center'>
+                        {(isMobile) ? null : <Grid item xs={6}></Grid>}
                         <Grid item xs>
-                            <Typography variant='h6' align='center' style={{cursor: 'pointer'}}
+                            <Typography variant={navSize} align='center' style={{cursor: 'pointer'}}
                               onClick={() => {scrollToComponent(this.homeRef, options)}}>
                                 Home
                             </Typography>
                         </Grid>
 
                         <Grid item xs>
-                            <Typography variant='h6' align='center' style={{cursor: 'pointer'}}
+                            <Typography variant={navSize} align='center' style={{cursor: 'pointer'}}
                               onClick={() => {scrollToComponent(this.aboutRef, {...options, offset: -30})}}>
                                 About Me
                             </Typography>
                         </Grid>
 
                         <Grid item xs={2}>
-                            <Typography variant='h6' align='center' style={{cursor: 'pointer'}}
+                            <Typography variant={navSize} align='center' style={{cursor: 'pointer'}}
                               onClick={() => {scrollToComponent(this.workRef, options)}}>
                                 Work & Education
                             </Typography>
                         </Grid>
 
                         <Grid item xs>
-                            <Typography variant='h6' align='center' style={{cursor: 'pointer'}}
+                            <Typography variant={navSize} align='center' style={{cursor: 'pointer'}}
                               onClick={() => {scrollToComponent(this.projectsRef, options)}}>
                                 Projects
                             </Typography>

@@ -5,10 +5,13 @@ import { makeStyles, Card, CardMedia, CardContent } from '@material-ui/core';
 const useStyles = makeStyles(theme => ({
     image: {
         width: '100%',
-        height: '250px'
+        height: '300px'
     },
     content: {
         height: '160px'
+    },
+    card: {
+        width: '100%'
     }
 }));
 
@@ -18,7 +21,7 @@ export default (props) => {
     const logo = images('./' + props.imageAddress);
 
     return (
-        <Card>
+        <Card className={classes.card}>
             <CardMedia
               className={classes.image}
               image={logo} />

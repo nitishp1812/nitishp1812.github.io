@@ -3,15 +3,17 @@ import DisplayCard from './DisplayCard';
 
 import { makeStyles, Grid, Typography } from '@material-ui/core';
 
+const isMobile = window.innerWidth <= 500;
+
 const useStyles = makeStyles(theme => ({
     root: {
         background: '#c0c0c0',
-        padding: '0 15% 8% 15%',
+        padding: isMobile ? '0 0 8% 0' : '0 15% 8% 15%',
         alignItems: 'center',
         alignContent: 'center'
     },
     heading: {
-        marginBottom: '5%'
+        marginBottom: isMobile ? '15%' : '5%'
     },
     container: {
         paddingLeft: '2%'
@@ -21,17 +23,21 @@ const useStyles = makeStyles(theme => ({
 export default () =>  {
     const classes = useStyles();
 
+    const direction = (isMobile) ? 'column' : 'row';
+    const headingSize = isMobile ? 'h4' : 'h3';
+    const cellSize = isMobile ? 10 : 4;
+
     return (
         <div className={classes.root}>
-            <Typography className={classes.heading} variant='h3' align='center' gutterBottom>
+            <Typography className={classes.heading} variant={headingSize} align='center' gutterBottom>
                 Projects
             </Typography>
 
             <div>
             <Grid container className={classes.container}
-              justify='center' alignItems='center' spacing={10}>
-                <Grid item xs={4}>
-                    <DisplayCard imageAddress='uiuc.jpg'>
+              justify='center' alignItems='center' spacing={10} direction={direction}>
+                <Grid item xs={cellSize}>
+                    <DisplayCard imageAddress='zip.png'>
                         <Typography align='center' variant='h6' gutterBottom>
                             Compression Library
                         </Typography>
@@ -43,8 +49,8 @@ export default () =>  {
                     </DisplayCard>
                 </Grid>
 
-                <Grid item xs={4}>
-                    <DisplayCard imageAddress='uiuc.jpg'>
+                <Grid item xs={cellSize}>
+                    <DisplayCard imageAddress='chat.png'>
                         <Typography align='center' variant='h6' gutterBottom>
                             Chat Server
                         </Typography>
@@ -56,8 +62,8 @@ export default () =>  {
                     </DisplayCard>
                 </Grid>
 
-                <Grid item xs={4}>
-                    <DisplayCard imageAddress='uiuc.jpg'>
+                <Grid item xs={cellSize}>
+                    <DisplayCard imageAddress='asl.jpg'>
                         <Typography align='center' variant='h6' gutterBottom>
                             Gesture Recognition
                         </Typography>
@@ -69,8 +75,8 @@ export default () =>  {
                     </DisplayCard>
                 </Grid>
 
-                <Grid item xs={4}>
-                    <DisplayCard imageAddress='uiuc.jpg'>
+                <Grid item xs={cellSize}>
+                    <DisplayCard imageAddress='chatbot.jpg'>
                         <Typography align='center' variant='h6' gutterBottom>
                             Chat Bot
                         </Typography>
@@ -82,8 +88,8 @@ export default () =>  {
                     </DisplayCard>
                 </Grid>
 
-                <Grid item xs={4}>
-                    <DisplayCard imageAddress='uiuc.jpg'>
+                <Grid item xs={cellSize}>
+                    <DisplayCard imageAddress='calculator.png'>
                         <Typography align='center' variant='h6' gutterBottom>
                             NCalculator
                         </Typography>

@@ -3,13 +3,15 @@ import DisplayCard from './DisplayCard';
 
 import { Typography, makeStyles, Grid } from '@material-ui/core';
 
+const isMobile = window.innerWidth <= 500;
+
 const useStyles = makeStyles(theme => ({
     root: {
         background: '#c0c0c0',
-        padding: '0 4% 8% 4%'
+        padding: isMobile ? '0 0 8% 0' : '0 4% 8% 4%'
     },
     heading: {
-        marginBottom: '5%'
+        marginBottom: isMobile ? '15%' : '5%'
     },
     container: {
         paddingLeft: '2%'
@@ -19,18 +21,23 @@ const useStyles = makeStyles(theme => ({
 export default () => {
     const classes = useStyles();
 
+    const direction = (isMobile) ? 'column' : 'row';
+    const headingSize = isMobile ? 'h4' : 'h3';
+    const cellSize = isMobile ? 10 : 3;
+
     return (
         <div className={classes.root}>
-            <Typography className={classes.heading} variant='h3' gutterBottom align='center'>
+            <Typography className={classes.heading} variant={headingSize} gutterBottom align='center'>
                 Work & Education
             </Typography>
 
-            <Grid container className={classes.container} 
+            <Grid container className={classes.container}
+              direction={direction}
               justify='center' 
               alignItems='center' 
               spacing={10}>
 
-                <Grid item xs={3}>
+                <Grid item xs={cellSize}>
                     <DisplayCard imageAddress='uiuc.jpg'>
                         <Typography align='center' variant='h6' gutterBottom>
                             University of Illinois at Urbana-Champaign
@@ -41,10 +48,11 @@ export default () => {
                             Class of 2022
                         </Typography>
                     </DisplayCard>
+                    {/* <img className={classes.image} src={require('./imgs/uiuc.jpg')} */}
                 </Grid>
 
 
-                <Grid item xs={3}>
+                <Grid item xs={cellSize}>
                     <DisplayCard imageAddress='supertron.png'>
                         <Typography align='center' variant='h6' gutterBottom>
                             Supertron Infotech
@@ -59,7 +67,7 @@ export default () => {
                 </Grid>
 
 
-                <Grid item xs={3}>
+                <Grid item xs={cellSize}>
                     <DisplayCard imageAddress='heritage.jpg'>
                         <Typography align='center' variant='h6' gutterBottom>
                             Heritage Institute of Technology
