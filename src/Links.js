@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
         left: '50%',
         background: '#fff',
         boxShadow: '0 0 40px rgba(0, 0, 0, 0.2)',
-        width: (isMobile) ? '370px' : '500px',
+        width: (isMobile) ? '350px' : '500px',
         padding: '20px',
         textAlign: 'center',
         transform: 'translate(-50%, -50%)',

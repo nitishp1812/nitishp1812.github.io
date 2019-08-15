@@ -2,10 +2,12 @@ import React from 'react';
 
 import { makeStyles, Card, CardMedia, CardContent } from '@material-ui/core';
 
+const isMobile = window.innerWidth <= 500;
+
 const useStyles = makeStyles(theme => ({
     image: {
         width: '100%',
-        height: '300px'
+        height: isMobile ? '300px' : '250px'
     },
     content: {
         height: '160px'
