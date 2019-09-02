@@ -6,10 +6,22 @@ import Work from './Work';
 import Projects from './Projects';
 import theme from './theme';
 
-import { MuiThemeProvider, AppBar, Toolbar, Grid, Typography } from '@material-ui/core';
+import { 
+    MuiThemeProvider,
+    AppBar,
+    Toolbar,
+    Grid,
+    Typography,
+    SwipeableDrawer,
+} from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
 import scrollToComponent from 'react-scroll-to-component';
 
 export default class extends Component {
+    state = {
+        open: false
+    }
+
     NavBar = () => {
         const options = {
             offset: -100,
@@ -18,39 +30,66 @@ export default class extends Component {
         };
 
         const isMobile = window.innerWidth <= 500;
-        const navSize = (isMobile) ? 'body1' : 'h6';
-        const navBarPadding = (isMobile) ? '1% 0' : '0.5% 0'
-        const navSpacing = (isMobile) ? 2 : 5
 
-        return (
-            <AppBar position='sticky' style={{background: '#e0e0e0', color: '#000', padding: {navBarPadding}}}>
+        const bar = (isMobile) ? (
+            <div>
+                <AppBar position='sticky'>
+                    <Toolbar>
+                        <MenuIcon onClick={this.setState(true)} />
+                        <SwipeableDrawer open={this.state.open}
+                          onClose={this.setState(false)} onOpen={this.setState(true)}>
+                            <Typography variant='h6' align='center' style={{cursor: 'pointer'}}
+                              onClick={() => {this.setState(false);scrollToComponent(this.homeRef, options)}}>
+                                Home
+                            </Typography>
+
+                            <Typography variant='h6' align='center' style={{cursor: 'pointer'}}
+                              onClick={() => {this.setState(false);scrollToComponent(this.aboutRef, {...options, offset: -30})}}>
+                                About Me
+                            </Typography>
+
+                            <Typography variant='h6' align='center' style={{cursor: 'pointer'}}
+                              onClick={() => {this.setState(false);scrollToComponent(this.workRef, options)}}>
+                                Work & Education
+                            </Typography>
+
+                            <Typography variant='h6' align='center' style={{cursor: 'pointer'}}
+                              onClick={() => {this.setState(false);scrollToComponent(this.projectsRef, options)}}>
+                                Projects
+                            </Typography>
+                        </SwipeableDrawer>
+                    </Toolbar>
+                </AppBar>
+            </div>
+        ) : (
+            <AppBar position='sticky' style={{background: '#e0e0e0', color: '#000', padding: '0.5% 0'}}>
                 <Toolbar>
                     <Grid container style={{paddingRight: '2%'}}
-                      direction='row' alignItems='center' spacing={navSpacing} justify='center'>
-                        {(isMobile) ? null : <Grid item xs={6}></Grid>}
+                      direction='row' alignItems='center' spacing={4} justify='center'>
+                        <Typography style={{flexGrow: 5}}></Typography>
                         <Grid item xs>
-                            <Typography variant={navSize} align='center' style={{cursor: 'pointer'}}
+                            <Typography variant='h6' align='center' style={{cursor: 'pointer'}}
                               onClick={() => {scrollToComponent(this.homeRef, options)}}>
                                 Home
                             </Typography>
                         </Grid>
 
                         <Grid item xs>
-                            <Typography variant={navSize} align='center' style={{cursor: 'pointer'}}
+                            <Typography variant='h6' align='center' style={{cursor: 'pointer'}}
                               onClick={() => {scrollToComponent(this.aboutRef, {...options, offset: -30})}}>
                                 About Me
                             </Typography>
                         </Grid>
 
                         <Grid item xs={2}>
-                            <Typography variant={navSize} align='center' style={{cursor: 'pointer'}}
+                            <Typography variant='h6' align='center' style={{cursor: 'pointer'}}
                               onClick={() => {scrollToComponent(this.workRef, options)}}>
                                 Work & Education
                             </Typography>
                         </Grid>
 
                         <Grid item xs>
-                            <Typography variant={navSize} align='center' style={{cursor: 'pointer'}}
+                            <Typography variant='h6' align='center' style={{cursor: 'pointer'}}
                               onClick={() => {scrollToComponent(this.projectsRef, options)}}>
                                 Projects
                             </Typography>
@@ -59,6 +98,8 @@ export default class extends Component {
                 </Toolbar>
             </AppBar>
         );
+
+        return bar;
     }
 
     render() {

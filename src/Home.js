@@ -7,7 +7,7 @@ const useStyles = makeStyles(theme => ({
     root: {
         background: theme.palette.primary.main,
         color: '#fff',
-        // padding: '4%',
+        padding: '4%',
         flexGrow: 1,
         paddingBottom: (isMobile) ? '110px' : '50px',
         paddingTop: (isMobile) ? '100px' : '50px'

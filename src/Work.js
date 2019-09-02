@@ -38,45 +38,31 @@ export default () => {
               spacing={10}>
 
                 <Grid item xs={cellSize}>
-                    <DisplayCard imageAddress='uiuc.jpg'>
-                        <Typography align='center' variant='h6' gutterBottom>
-                            University of Illinois at Urbana-Champaign
-                        </Typography>
-                        <Typography align='center' variant='body2'>
-                            B.Sc (Computer Science)
-                            <br/><br/>
-                            Class of 2022
-                        </Typography>
-                    </DisplayCard>
-                    {/* <img className={classes.image} src={require('./imgs/uiuc.jpg')} */}
-                </Grid>
-
-
-                <Grid item xs={cellSize}>
-                    <DisplayCard imageAddress='supertron.png'>
-                        <Typography align='center' variant='h6' gutterBottom>
-                            Supertron Infotech
-                        </Typography>
-                        <Typography align='center' variant='body2'>
-                            Project lead for making a chat bot and search engine for a local university's website
-                            using React and MongoDB
-                            <br/><br/>
-                            Summer 2019
-                        </Typography>
+                    <DisplayCard imageAddress='/images/uiuc.jpg'
+                      title='University of Illinois at Urbana-Champaign' time='Class of 2022'>
+                        Bachelor of Science (Computer Science)<br/>
+                        Minor (Statistics)
                     </DisplayCard>
                 </Grid>
 
 
                 <Grid item xs={cellSize}>
-                    <DisplayCard imageAddress='heritage.jpg'>
-                        <Typography align='center' variant='h6' gutterBottom>
-                            Heritage Institute of Technology
-                        </Typography>
-                        <Typography align='center' variant='body2'>
-                            Learned about missing value estimation from Professor Sujay Saha.
-                            <br/><br/>
-                            Spring 2018
-                        </Typography>
+                    <DisplayCard imageAddress='/images/supertron.png'
+                      title='Supertron Infotech' time='Summer 2019'>
+                        Project lead for making a query-answering chat bot for a local 
+                        university's website. Designed and developed the user interface for
+                        the bot using ReactJS and developed the back end and server using NodeJS.
+                        Also designed the database for the bot to efficiently store user records
+                        with MongoDB.
+                    </DisplayCard>
+                </Grid>
+
+                <Grid item xs={cellSize}>
+                    <DisplayCard imageAddress='/images/heritage.png'
+                      title='Heritage Institute of Technology' time='Spring 2018'>
+                        Learned about and extensively researched missing value estimation 
+                        under the guidance of Professor Sujay Saha of the Heritage Institute of
+                        Technology.
                     </DisplayCard>
                 </Grid>
             </Grid>
