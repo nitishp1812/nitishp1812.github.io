@@ -142,7 +142,7 @@ export default () =>  {
                         </a>
                         <a className={classes.link}
                           href='https://play.google.com/store/apps/details?id=nitishpoddar1812.calculator' target='_blank'>
-                            Google PlayStore
+                            PlayStore
                         </a>
                     </DisplayCard>
                 </Grid>

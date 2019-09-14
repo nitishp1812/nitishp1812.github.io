@@ -94,7 +94,7 @@ export default () => {
                         presented to the user. <br /> <br />
                         <a className={classes.link}
                           href='http://sifaka.cs.uiuc.edu/ir/' target='_blank'>
-                          Research Group Website
+                          Group Website
                         </a>
                     </DisplayCard>
                 </Grid>
