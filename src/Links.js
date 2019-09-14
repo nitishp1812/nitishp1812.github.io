@@ -88,14 +88,6 @@ export default () => {
 
             <Grid item xs>
                 <Fade in={true} timeout={3500}>
-                    <Link name='Facebook' link='https://www.facebook.com/nitishpoddar99' classes={classes}>
-                        <img src={require('./imgs/facebook.svg')} alt='facebook' />
-                    </Link>
-                </Fade>
-            </Grid>
-
-            <Grid item xs>
-                <Fade in={true} timeout={3500}>
                     <Link name='LinkedIn' link='https://www.linkedin.com/in/nitish-poddar-579497175/' classes={classes}>
                         <img src={require('./imgs/linkedin.svg')} alt='linkedin' />
                     </Link>

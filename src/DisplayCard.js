@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
 
-import { makeStyles, ButtonBase, Typography, Modal, Grid } from '@material-ui/core';
+import { 
+    makeStyles,
+    ButtonBase,
+    Typography,
+    Modal,
+    Grid,
+    Paper
+} from '@material-ui/core';
 
 const isMobile = window.innerWidth <= 500;
 
 const useStyles = makeStyles(theme => ({
     image: {
         width: '100%',
-        height: isMobile ? '300px' : '350px',
+        height: '350px',
         position: 'relative',
         '&:hover, &$focusVisible': {
             zIndex: 1,
@@ -58,13 +65,13 @@ const useStyles = makeStyles(theme => ({
     },
     popup: {
         position: 'absolute',
-        width: isMobile ? '90%' : '60%',
+        width: isMobile ? '75%': '60%',
         backgroundColor: '#e0e0e0',
         border: '1px solid #000',
         boxShadow: theme.shadows[5],
         padding: theme.spacing(3),
         top: '50%',
-        left: '50%',
+        left: isMobile ? '45%' : '50%',
         transform: 'translate(-50%, -50%)'
     },
     popupImage: {
@@ -73,6 +80,25 @@ const useStyles = makeStyles(theme => ({
     },
     popupContent: {
         marginLeft: '2%'
+    },
+    mobileImage: {
+        width: '100%',
+        height: '350px',
+        position: 'relative'
+    },
+    mobileSource: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        bottom: 0,
+        top: 0,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center 40%'
+    },
+    paper: {
+        background: '#f0f0f0',
+        width: '300px',
+        padding: '2px'
     }
 }));
 
@@ -82,14 +108,51 @@ export default (props) => {
     const [open, setOpen] = useState(false);
 
     function openPopup() {
-        setHidden(true);
+        if (!isMobile) {
+            setHidden(true);
+        }
         setOpen(true);
     }
 
-    return (
-        <div onMouseEnter={() => {setHidden(false)}} onMouseLeave={() => {setHidden(true)}}>
+    return isMobile ? (
+        <div>
+            <Paper className={classes.paper} elevation={3}>
+                <ButtonBase className={classes.mobileImage} onClick={openPopup}>
+                    <span className={classes.mobileSource}
+                      style={{backgroundImage: `url(${props.imageAddress})`}} />
+                    <span className={classes.backdrop} />
+                </ButtonBase>
+                <Typography variant='h6' align='center'>
+                    {props.title}
+                </Typography>
+            </Paper>
+            <Modal open={open} onClose={() => {setOpen(false)}}>
+                <div className={classes.popup}>
+                    <Grid container direction='row' spacing={0} alignItems='center'>
+                        <Grid item xs={4}>
+                            <img className={classes.popupImage} src={props.imageAddress} alt=''/>
+                        </Grid>
+                        <Grid className={classes.popupContent} item xs={7}>
+                            <Typography variant='h4' align='center'>
+                                {props.title}
+                            </Typography>
+                            <Typography variant='subtitle1' align='center' gutterBottom>
+                                ({props.time})
+                            </Typography>
+                            <br />
+                            <Typography variant='body1' align='center' paragraph>
+                                {props.children}
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                </div>
+            </Modal>
+        </div>
+    ) : (
+        <div>
             <ButtonBase focusRipple className={classes.image} onClick={openPopup}
-              focusVisibleClassName={classes.focusVisible}>
+              focusVisibleClassName={classes.focusVisible}
+              onMouseEnter={() => {setHidden(false)}} onMouseLeave={() => {setHidden(true)}}>
                 <span className={classes.imageSource}
                   style={{backgroundImage: `url(${props.imageAddress})`}} />
                 <span className={classes.backdrop} />
