@@ -31,15 +31,15 @@ export default () => {
                 About Me
             </Typography>
             <Typography className={classes.content} variant={contentSize} align='center' paragraph>
-                Hi! My name is Nitish Poddar. I am a Computer Science major at the University of
-                Illinois at Urbana-Champaign and am currently a sophomore.
+                Hi! My name is Nitish Poddar. I am a sophomore at the University of
+                Illinois at Urbana-Champaign majoring in Computer Science with a minor in Economics.
             </Typography>
             <br/><br/>
             <Typography className={classes.content} variant={contentSize} align='center' paragraph>
-                I am an enthusiastic software developer, and I primarily try to develop applications
-                that can help its users in some way. I am also greatly interested in the fields of 
-                Data Science and Machine Learning. Recently, the fields of Computer Networking and
-                Cloud Computing have also begun to pique my attention.
+                I am a keen software developer, and I have a passion for developing software
+                that can help its users in some way. I am also a Data Science and Machine Learning
+                aficionado, constantly experimenting with and keeping up to date with the latest 
+                developments in the industry.
             </Typography>
             <br/><br/>
             <Typography className={classes.content} variant={contentSize} align='center' paragraph>
