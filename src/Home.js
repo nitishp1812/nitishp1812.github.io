@@ -5,18 +5,18 @@ const isMobile = (window.innerWidth <= 500);
 
 const useStyles = makeStyles(theme => ({
     root: {
-        background: theme.palette.primary.main,
+        background: 'linear-gradient(to bottom, #000040, #000070)',
         color: '#fff',
         padding: '4%',
         flexGrow: 1,
-        paddingBottom: (isMobile) ? '110px' : '50px',
-        paddingTop: (isMobile) ? '100px' : '50px'
+        paddingBottom: (isMobile) ? '110px' : '70px',
+        paddingTop: (isMobile) ? '100px' : '70px'
     },
     dp: {
         borderRadius: '50%',
         borderColor: '#fff',
-        border: '2px solid',
-        width: '350px'
+        border: '1.5px solid',
+        width: '270px'
     }
 }));
 
@@ -26,7 +26,7 @@ export default () => {
     return (
         <div className={classes.root}>
             <Fade in={true} timeout={2000}>
-                <Grid container direction='column' spacing={5} alignItems='center' justify='center'>
+                <Grid container direction='column' spacing={8} alignItems='center' justify='center'>
                     <Grid item xs>
                         <img className={classes.dp} src={require('./imgs/dp.jpeg')} alt="DP" />
                     </Grid>

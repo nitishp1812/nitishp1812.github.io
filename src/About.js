@@ -6,7 +6,7 @@ const isMobile = window.innerWidth <= 500;
 
 const useStyles = makeStyles(theme => ({
     root: {
-        background: '#c0c0c0',
+        // background: '#c0c0c0',
         padding: isMobile ? '10% 4%' : '8% 4%',
         color: '#000',
         marginTop: (isMobile) ? '10%' : '0'
@@ -36,15 +36,15 @@ export default () => {
             </Typography>
             <br/><br/>
             <Typography className={classes.content} variant={contentSize} align='center' paragraph>
-                I am a keen software developer, and I have a passion for developing software
+                I am an enthusiastic software developer with a passion for developing software
                 that can help its users in some way. I am also a Data Science and Machine Learning
                 aficionado, constantly experimenting with and keeping up to date with the latest 
                 developments in the industry.
             </Typography>
             <br/><br/>
             <Typography className={classes.content} variant={contentSize} align='center' paragraph>
-                I am also a great soccer fan and avidly follow Arsenal F.C. while also being an
-                enthusiastic hip-hop dancer.
+                In addition to this, I am also an enthusiastic hip-hop dancer and a huge soccer fan
+                and avidly follow Arsenal F.C.
             </Typography>
         </div>
     );

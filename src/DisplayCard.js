@@ -66,7 +66,7 @@ const useStyles = makeStyles(theme => ({
     popup: {
         position: 'absolute',
         width: isMobile ? '75%': '60%',
-        backgroundColor: '#e0e0e0',
+        backgroundColor: '#c0c0c0',
         border: '1px solid #000',
         boxShadow: theme.shadows[5],
         padding: theme.spacing(3),
@@ -79,7 +79,7 @@ const useStyles = makeStyles(theme => ({
         height: '100%'
     },
     popupContent: {
-        marginLeft: '2%'
+        marginLeft: '5%'
     },
     mobileImage: {
         width: '100%',
@@ -99,7 +99,37 @@ const useStyles = makeStyles(theme => ({
         background: '#f0f0f0',
         width: '300px',
         padding: '2px'
-    }
+    },
+    link: {
+        '&:link': {
+          color: '#fff',
+          textDecoration: 'none',
+          backgroundColor: '#555',
+          padding: '10px',
+          border: '1px solid #ccc'
+        },
+        '&:visited': {
+          color: '#fff',
+          textDecoration: 'none',
+          backgroundColor: '#6f6f6f',
+          padding: '10px',
+          border: '1px solid #ccc'
+        },
+        '&:hover': {
+          color: '#fff',
+          textDecoration: 'none',
+          backgroundColor: '#888',
+          padding: '10px',
+          border: '1px solid #ccc'
+        },
+        '&:active': {
+          color: '#000',
+          textDecoration: 'none',
+          backgroundColor: '#e0e0e0',
+          padding: '10px',
+          border: '1px solid #ccc'
+        }
+      }
 }));
 
 export default (props) => {
@@ -143,6 +173,9 @@ export default (props) => {
                             <Typography variant='body1' align='center' paragraph>
                                 {props.children}
                             </Typography>
+                            <Typography variant='body1' align='center' paragraph>
+                                {props.link}
+                            </Typography>
                         </Grid>
                     </Grid>
                 </div>
@@ -177,8 +210,13 @@ export default (props) => {
                                 ({props.time})
                             </Typography>
                             <br />
-                            <Typography variant='body1' align='center' paragraph>
+                            <Typography variant='body1' align='justify' paragraph>
                                 {props.children}
+                            </Typography>
+                            <Typography variant='body1' align='center' paragraph>
+                                <a className={classes.link} href={props.link} target='_blank'>
+                                    {props.linkText}
+                                </a>
                             </Typography>
                         </Grid>
                     </Grid>

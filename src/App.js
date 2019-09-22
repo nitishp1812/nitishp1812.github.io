@@ -30,7 +30,7 @@ export default class extends Component {
         const isMobile = window.innerWidth <= 500;
 
         const bar = (isMobile) ? (
-            <AppBar position='sticky' style={{background: '#e0e0e0', color: '#000', padding: '1% 0'}}>
+            <AppBar position='sticky' style={{background: 'linear-gradient(to bottom right, #c0c0c0, #909090)', color: '#000', padding: '1% 0'}}>
                 <Toolbar>
                     <Grid container style={{paddingRight: '2%'}}
                       direction='row' alignItems='center' spacing={2} justify='center'>
@@ -66,7 +66,7 @@ export default class extends Component {
                 </Toolbar>
             </AppBar>
         ) : (
-            <AppBar position='sticky' style={{background: '#e0e0e0', color: '#000', padding: '0.5% 0'}}>
+            <AppBar position='sticky' style={{background: 'linear-gradient(to bottom right, #c0c0c0, #909090)', color: '#000', padding: '0.5% 0'}}>
                 <Toolbar>
                     <Grid container style={{paddingRight: '2%'}}
                       direction='row' alignItems='center' spacing={4} justify='center'>
@@ -109,7 +109,7 @@ export default class extends Component {
     render() {
         return (
             <MuiThemeProvider theme={theme}>
-                <div style={{background: '#c0c0c0'}}>
+                <div style={{background: 'linear-gradient(to bottom, #8f8f8f, #b0b0b0)'}}>
                 <this.NavBar />
                     <section ref={(section) => {this.homeRef = section;}}>
                         <Home />

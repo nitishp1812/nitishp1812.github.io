@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     linksContainer: {
         position: 'absolute',
         left: '50%',
-        background: '#fff',
+        background: 'linear-gradient(to bottom right, #c0c0c0, #a0a0a0)',
         boxShadow: '0 0 40px rgba(0, 0, 0, 0.2)',
         width: (isMobile) ? '350px' : '500px',
         padding: '20px',
@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
         transform: 'translate(-50%, -50%)',
     },
     desc: {
-        background: '#fff',
+        background: '#c0c0c0',
         opacity: 1
     },
     typography: {
@@ -88,7 +88,7 @@ export default () => {
 
             <Grid item xs>
                 <Fade in={true} timeout={3500}>
-                    <Link name='LinkedIn' link='https://www.linkedin.com/in/nitish-poddar-579497175/' classes={classes}>
+                    <Link name='LinkedIn' link='https://www.linkedin.com/in/nitish-poddar/' classes={classes}>
                         <img src={require('./imgs/linkedin.svg')} alt='linkedin' />
                     </Link>
                 </Fade>
@@ -104,7 +104,7 @@ export default () => {
 
             <Grid item xs>
                 <Fade in={true} timeout={3500}>
-                    <Link name='My Resume' link='https://nitishp1812.github.io/data/Resume.pdf' classes={classes}>
+                    <Link name='My Resume' link='/data/Resume.pdf' classes={classes}>
                         <NotesIcon />
                     </Link>
                 </Fade>
