@@ -1,0 +1,82 @@
+@import '~antd/dist/antd.less';
+
+
+.about-wrapper {
+	height: 100%;
+	padding: 4vh 12vw;
+	display: flex;
+	flex-direction: column;
+
+	h1 {
+		color: @primary-color;
+		font-weight: 700;
+	}
+
+	.ant-card-head {
+		border-bottom: none;
+		margin-bottom: -24px;
+		padding: 20px;
+	}
+
+	.ant-btn, .ant-btn:active, .ant-btn:focus {
+		background-color: rgb(204, 214, 216);
+		color: black;
+		border: none;
+	}
+
+	.ant-btn:hover {
+		background-color: @primary-color;
+		color: black;
+	}
+
+	.ant-card-meta-detail {
+		overflow: initial;
+		overflow-wrap: break-word;
+
+		.ant-card-meta-title {
+			overflow: initial;
+			overflow-wrap: break-word;
+			text-overflow: unset;
+			white-space: normal;
+			margin-left: 15px;
+		}
+	}
+}
+
+.about-section {
+	p {
+		color: rgb(136, 146, 176);
+	}
+}
+
+.proj-wrapper {
+	margin-bottom: 20px;
+}
+
+.exp-wrapper,
+.proj-wrapper {
+	p {
+		color: rgb(136, 146, 176);
+		line-height: 1.6;
+		margin: 0 5px;
+	}
+}
+
+.card-heading-location {
+	color: @primary-color;
+	font-weight: 500;
+}
+
+.card-heading-position {
+	color: rgb(204, 214, 216);
+	font-weight: 400;
+}
+
+.card-description {
+	color: rgb(136, 146, 176);
+}
+
+.link-button {
+	width: 100%;
+	margin: 16px 0 8px;
+}

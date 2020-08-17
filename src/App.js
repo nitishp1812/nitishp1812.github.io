@@ -1,131 +1,74 @@
-import React, { Component } from 'react';
-import Home from './Home';
-import Links from './Links';
-import About from './About';
-import Work from './Work';
-import Projects from './Projects';
-import theme from './theme';
+import React, { useState } from 'react';
+import { Layout, Button } from 'antd';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch
+} from 'react-router-dom';
 
-import { 
-    MuiThemeProvider,
-    AppBar,
-    Toolbar,
-    Grid,
-    Typography,
-} from '@material-ui/core';
-import scrollToComponent from 'react-scroll-to-component';
+import About from './components/About';
+import Home from './components/Home';
+import NotFound from './components/404';
 
-export default class extends Component {
-    state = {
-        open: false
-    }
+import './App.less';
+import Scrollbars from 'react-custom-scrollbars';
 
-    NavBar = () => {
-        const options = {
-            offset: -100,
-            align: 'top',
-            duration: 1500
-        };
+const { Header, Content } = Layout;
 
-        const isMobile = window.innerWidth <= 500;
+export default function App() {
+  const [homeClassName, setHomeClassName] = useState('menu-item selected');
+  const [aboutClassName, setAboutClassName] = useState('menu-item');
 
-        const bar = (isMobile) ? (
-            <AppBar position='sticky' style={{background: 'linear-gradient(to bottom right, #c0c0c0, #909090)', color: '#000', padding: '1% 0'}}>
-                <Toolbar>
-                    <Grid container style={{paddingRight: '2%'}}
-                      direction='row' alignItems='center' spacing={2} justify='center'>
-                        <Typography style={{flexGrow: 0}}></Typography>
-                        <Grid item xs>
-                            <Typography variant='body1' align='center' style={{cursor: 'pointer'}}
-                              onClick={() => {scrollToComponent(this.homeRef, options)}}>
-                                Home
-                            </Typography>
-                        </Grid>
+  const setHome = () => {
+    setHomeClassName('menu-item selected');
+    setAboutClassName('menu-item')
+  }
 
-                        <Grid item xs>
-                            <Typography variant='body1' align='center' style={{cursor: 'pointer'}}
-                              onClick={() => {scrollToComponent(this.aboutRef, {...options, offset: -30})}}>
-                                About Me
-                            </Typography>
-                        </Grid>
+  const setAbout = () => {
+    setHomeClassName('menu-item');
+    setAboutClassName('menu-item selected')
+  }
 
-                        <Grid item xs={2}>
-                            <Typography variant='body1' align='center' style={{cursor: 'pointer'}}
-                              onClick={() => {scrollToComponent(this.workRef, options)}}>
-                                Work & Education
-                            </Typography>
-                        </Grid>
+  const setNotFound = () => {
+    setHomeClassName('menu-item');
+    setAboutClassName('menu-item');
+  }
 
-                        <Grid item xs>
-                            <Typography variant='body1' align='center' style={{cursor: 'pointer'}}
-                              onClick={() => {scrollToComponent(this.projectsRef, options)}}>
-                                Projects
-                            </Typography>
-                        </Grid>
-                    </Grid>
-                </Toolbar>
-            </AppBar>
-        ) : (
-            <AppBar position='sticky' style={{background: 'linear-gradient(to bottom right, #c0c0c0, #909090)', color: '#000', padding: '0.5% 0'}}>
-                <Toolbar>
-                    <Grid container style={{paddingRight: '2%'}}
-                      direction='row' alignItems='center' spacing={4} justify='center'>
-                        <Typography style={{flexGrow: 5}}></Typography>
-                        <Grid item xs>
-                            <Typography variant='h6' align='center' style={{cursor: 'pointer'}}
-                              onClick={() => {scrollToComponent(this.homeRef, options)}}>
-                                Home
-                            </Typography>
-                        </Grid>
-
-                        <Grid item xs>
-                            <Typography variant='h6' align='center' style={{cursor: 'pointer'}}
-                              onClick={() => {scrollToComponent(this.aboutRef, {...options, offset: -30})}}>
-                                About Me
-                            </Typography>
-                        </Grid>
-
-                        <Grid item xs={2}>
-                            <Typography variant='h6' align='center' style={{cursor: 'pointer'}}
-                              onClick={() => {scrollToComponent(this.workRef, options)}}>
-                                Work & Education
-                            </Typography>
-                        </Grid>
-
-                        <Grid item xs>
-                            <Typography variant='h6' align='center' style={{cursor: 'pointer'}}
-                              onClick={() => {scrollToComponent(this.projectsRef, options)}}>
-                                Projects
-                            </Typography>
-                        </Grid>
-                    </Grid>
-                </Toolbar>
-            </AppBar>
-        );
-
-        return bar;
-    }
-
-    render() {
-        return (
-            <MuiThemeProvider theme={theme}>
-                <div style={{background: 'linear-gradient(to bottom, #8f8f8f, #b0b0b0)'}}>
-                <this.NavBar />
-                    <section ref={(section) => {this.homeRef = section;}}>
-                        <Home />
-                    </section>
-                    <Links />
-                    <section ref={(section) => {this.aboutRef = section;}}>
-                        <About />
-                    </section>
-                    <section ref={(section) => {this.workRef = section;}}>
-                        <Work />
-                    </section>
-                    <section ref={(section) => {this.projectsRef = section;}}>
-                        <Projects />
-                    </section>
-                </div>
-            </MuiThemeProvider>
-        );
-    }
+  return (
+    <Router>
+      <Layout style={{height: '100vh'}}>
+        <Header className='header-container'>
+          <div className='main-menu'>
+            <Link to='/' style={{height: 'inherit'}}>
+              <Button className={homeClassName} type='link'>Home</Button>
+            </Link>
+            <Link to='/about' style={{height: 'inherit'}}>
+              <Button className={aboutClassName} type='link'>About</Button>
+            </Link>
+          </div>
+        </Header>
+        <Content className='main-content'>
+          <Scrollbars renderThumbVertical={({ style, ...props}) => {
+              const thumbStyle = {backgroundColor: 'whitesmoke', width: '2px'};
+              return (
+                <div style={{...style, ...thumbStyle }} {...props} />
+              );
+            }}>
+            <Switch>
+              <Route path='/' exact>
+                <Home setHome={setHome} />
+              </Route>
+              <Route path='/about' exact>
+                <About setAbout={setAbout} />
+              </Route>
+              <Route>
+                <NotFound setNotFound={setNotFound} />
+              </Route>
+            </Switch>
+          </Scrollbars>
+        </Content>
+    </Layout>
+    </Router>
+  );
 }
