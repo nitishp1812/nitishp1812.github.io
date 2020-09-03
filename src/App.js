@@ -49,7 +49,7 @@ export default function App() {
           </div>
         </Header>
         <Content className='main-content'>
-          <Scrollbars renderThumbVertical={({ style, ...props}) => {
+          <Scrollbars className='scroll-container' renderThumbVertical={({ style, ...props}) => {
               const thumbStyle = {backgroundColor: 'whitesmoke', width: '2px'};
               return (
                 <div style={{...style, ...thumbStyle }} {...props} />
@@ -68,7 +68,7 @@ export default function App() {
             </Switch>
           </Scrollbars>
         </Content>
-    </Layout>
+      </Layout>
     </Router>
   );
 }
